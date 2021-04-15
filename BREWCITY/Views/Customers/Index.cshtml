@@ -1,0 +1,45 @@
+﻿@model IEnumerable<BREWCITY.Models.Brewery>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<a asp-action="MyReviews"> My Reviews</a> |
+<a asp-action="FilterBeers"> Filter Beers</a> 
+
+
+<table class="table">
+    <thead>
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.BusinessName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ZipCode)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.BusinessName)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.ZipCode)
+                </td>
+                <td>
+                    
+                    <a asp-action="Details" asp-route-id="@item.BreweryId">Details</a> 
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
